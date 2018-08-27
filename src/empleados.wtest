@@ -9,4 +9,9 @@ test "sueldo de Baigorria y de Gimenez" {
 	assert.equals(15000, gimenez.sueldo())
 	gimenez.sueldo(12000)
 	assert.equals(12000, gimenez.sueldo())
+	
+}
+
+test "econimia de galvan"{
+	
 }
