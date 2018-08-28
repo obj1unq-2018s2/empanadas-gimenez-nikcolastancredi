@@ -5,16 +5,39 @@ object gimenez {
 
 	var sueldo = 15000
 	var acumuladorSueldo = 0
-	method sueldo() { return 15000 }
+	var deudaAcumulada = 0
+	var dinero = 0
+	method sueldo() { return sueldo }
 	method sueldo(nuevoValor) { 
 		sueldo = nuevoValor
 	}
 	
 	method cobrarSueldo(){
-		acumuladorSueldo += self.sueldo()
+		acumuladorSueldo += self.sueldo() 
+		dinero += self.sueldo()
 	}
 	
 	method totalCobrado() = acumuladorSueldo 
+	
+	method gastar(cuanto){
+		if(dinero >= cuanto){
+			dinero -= cuanto
+		}else{
+			deudaAcumulada = cuanto - dinero
+		}
+	}
+	method totalDeuda() = deudaAcumulada 
+		
+	
+	method totalDinero(){
+		if(dinero < deudaAcumulada){
+			dinero = 0
+		}else {
+			dinero -= deudaAcumulada
+		}
+		return (dinero)
+	}
+	
 	
 }
 

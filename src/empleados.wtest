@@ -12,6 +12,26 @@ test "sueldo de Baigorria y de Gimenez" {
 	
 }
 
-test "econimia de galvan"{
+test "economia de gimenez"{
+	assert.equals (15000,  gimenez.sueldo())
+	assert.equals(0, gimenez.totalCobrado())
+	assert.equals (0 , gimenez.totalDeuda())
+	assert.equals (0, gimenez.totalDinero())
+	gimenez.cobrarSueldo()  // ---------------------------- Cobro 1er sueldo ------------------
+	assert.equals(15000, gimenez.totalCobrado())
+	assert.equals (0 , gimenez.totalDeuda())
+	assert.equals (15000, gimenez.totalDinero())
+	gimenez.cobrarSueldo()  // -------------------------  Cobro 2do sueldo ------------
+	assert.equals(30000, gimenez.totalCobrado())
+	assert.equals (0 , gimenez.totalDeuda())
+	assert.equals (30000, gimenez.totalDinero())
+	gimenez.gastar(5000) // se compro una tele
+	assert.equals(30000, gimenez.totalCobrado())
+	assert.equals (0 , gimenez.totalDeuda())
+	assert.equals (25000, gimenez.totalDinero())
+	gimenez.gastar (50000) // ------------------------ Se Compro un auto -----------
+	assert.equals(30000, gimenez.totalCobrado())
+	assert.equals (25000 , gimenez.totalDeuda())
+	assert.equals (0, gimenez.totalDinero())
 	
 }
